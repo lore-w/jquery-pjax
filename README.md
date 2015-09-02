@@ -23,19 +23,19 @@
 
 ## Introduction
 
-pjax is a jQuery plugin that uses ajax and pushState to deliver a fast browsing experience with real permalinks, page titles, and a working back button.
+pjax is a jQuery plugin that uses ajax and pushState to deliver（传送、交付） a fast browsing experience with real permalinks（固定链接）, page titles, and a working back button.
 
-pjax works by grabbing html from your server via ajax and replacing the content
+pjax works by grabbing（抓取、爬虫类） html from your server via（通过） ajax and replacing the content
 of a container on your page with the ajax'd html. It then updates the browser's
 current URL using pushState without reloading your page's layout or any
-resources (JS, CSS), giving the appearance of a fast, full page load. But really
+resources (JS, CSS), giving the appearance(外貌、样子) of a fast, full page load. But really
 it's just ajax and pushState.
 
-For [browsers that don't support pushState][compat] pjax fully degrades.
+For [browsers that don't support pushState][compat] pjax fully degrades(降低、降级).
 
 ## Overview
 
-pjax is not fully automatic. You'll need to setup and designate a containing element on your page that will be replaced when you navigate your site.
+pjax is not fully automatic. You'll need to setup and designate（指定） a containing element on your page that will be replaced when you navigate your site.
 
 Consider the following page.
 
@@ -64,7 +64,7 @@ We do this by telling pjax to listen on `a` tags and use `#pjax-container` as th
 $(document).pjax('a', '#pjax-container')
 ```
 
-Now when someone in a pjax-compatible browser clicks "next page" the content of `#pjax-container` will be replaced with the body of `/page/2`.
+Now when someone in a pjax-compatible（兼容的） browser clicks "next page" the content of `#pjax-container` will be replaced with the body of `/page/2`.
 
 Magic! Almost. You still need to configure your server to look for pjax requests and send back pjax-specific content.
 
@@ -110,19 +110,19 @@ pjax can be downloaded directly into your app's public directory - just be sure 
 curl -LO https://raw.github.com/defunkt/jquery-pjax/master/jquery.pjax.js
 ```
 
-**WARNING** Do not hotlink the raw script url. GitHub is not a CDN.
+**WARNING** Do not hotlink the raw（原始、未加工的） script url. GitHub is not a CDN.
 
 ## Dependencies
 
 Requires jQuery 1.8.x or higher.
 
-## Compatibility
+## Compatibility（兼容性）
 
 pjax only works with [browsers that support the `history.pushState`
 API][compat]. When the API isn't supported pjax goes into fallback mode:
-`$.fn.pjax` calls will be a no-op and `$.pjax` will hard load the given URL.
+`$.fn.pjax` calls will be a no-op（停止操作指令） and `$.pjax` will hard load the given URL.
 
-For debugging purposes, you can intentionally disable pjax even if the browser supports `pushState`. Just call `$.pjax.disable()`. To see if pjax is actually supports `pushState`, check `$.support.pjax`.
+For debugging purposes（目的、为目的）, you can intentionally（故意地） disable pjax even if the browser supports `pushState`. Just call `$.pjax.disable()`. To see if pjax is actually supports `pushState`, check `$.support.pjax`.
 
 ## Usage
 
@@ -136,7 +136,7 @@ $(document).pjax('a', '#pjax-container')
 
 This will enable pjax on all links and designate the container as `#pjax-container`.
 
-If you are migrating an existing site you probably don't want to enable pjax everywhere just yet. Instead of using a global selector like `a` try annotating pjaxable links with `data-pjax`, then use `'a[data-pjax]'` as your selector.
+If you are migrating（迁移） an existing site you probably don't want to enable pjax everywhere just yet. Instead of using a global selector like `a` try annotating（注解、注释） pjaxable links with `data-pjax`, then use `'a[data-pjax]'` as your selector.
 
 Or try this selector that matches any `<a data-pjax href=>` links inside a `<div data-pjax>` container.
 
@@ -146,15 +146,15 @@ $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container')
 
 #### Arguments
 
-The synopsis for the `$.fn.pjax` function is:
+The synopsis（摘要、总览） for the `$.fn.pjax` function is:
 
 ``` javascript
 $(document).pjax(selector, [container], options)
 ```
 
 1. `selector` is a string to be used for click [event delegation][$.fn.on].
-2. `container` is a string selector that uniquely identifies the pjax container.
-3. `options` is an object with keys described below.
+2. `container` is a string selector that uniquely （唯一）identifies（可识别） the pjax container.
+3. `options` is an object with keys described（描述的） below.
 
 ##### pjax options
 
@@ -163,15 +163,15 @@ key | default | description
 `timeout` | 650 | ajax timeout in milliseconds after which a full refresh is forced
 `push` | true | use [pushState][] to add a browser history entry upon navigation
 `replace` | false | replace URL without adding browser history entry
-`maxCacheLength` | 20 | maximum cache size for previous container contents
+`maxCacheLength` | 20 | maximum cache size for previous（先前de、以前的） container contents
 `version` | | a string or function returning the current pjax version
-`scrollTo` | 0 | vertical position to scroll to after navigation. To avoid changing scroll position, pass `false`.
+`scrollTo` | 0 | vertical position to scroll to after navigation. To avoid（避免） changing scroll position, pass `false`.
 `type` | `"GET"` | see [$.ajax][]
 `dataType` | `"html"` | see [$.ajax][]
 `container` | | CSS selector for the element where content should be replaced
 `url` | link.href | a string or function that returns the URL for the ajax request
 `target` | link | eventually the `relatedTarget` value for [pjax events](#events)
-`fragment` | | CSS selector for the fragment to extract from ajax response
+`fragment` | | CSS selector for the fragment（碎片） to extract（提取） from ajax response
 
 You can change the defaults globally by writing to the `$.pjax.defaults` object:
 
@@ -183,7 +183,7 @@ $.pjax.defaults.timeout = 1200
 
 This is a lower level function used by `$.fn.pjax` itself. It allows you to get a little more control over the pjax event handling.
 
-This example uses the current click context to set an ancestor as the container:
+This example uses the current click context（上下文） to set an ancestor（祖先、被继承人） as the container:
 
 ``` javascript
 if ($.support.pjax) {
