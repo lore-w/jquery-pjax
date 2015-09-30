@@ -1,5 +1,5 @@
 var $ = require('jquery');
 
-require('./lib/jquery.pjax');
+require('spm-pjax');
 
 $(document).pjax('a', '#pjax-container');

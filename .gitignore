@@ -5,3 +5,4 @@ node_modules/
 .idea/
 demo/node_modules/
 demo/spm_modules/
+demo/_site/
