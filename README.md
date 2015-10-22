@@ -163,7 +163,7 @@ key | default | description
 `timeout` | 650 | ajax timeout in milliseconds after which a full refresh is forced
 `push` | true | use [pushState][] to add a browser history entry upon navigation
 `replace` | false | replace URL without adding browser history entry
-`maxCacheLength` | 20 | maximum cache size for previous（先前de、以前的） container contents
+`maxCacheLength` | 20 | maximum cache size for previous（先前的、以前的） container contents
 `version` | | a string or function returning the current pjax version
 `scrollTo` | 0 | vertical position to scroll to after navigation. To avoid（避免） changing scroll position, pass `false`.
 `type` | `"GET"` | see [$.ajax][]
@@ -194,11 +194,11 @@ if ($.support.pjax) {
 }
 ```
 
-**NOTE** Use the explicit `$.support.pjax` guard. We aren't using `$.fn.pjax` so we should avoid binding this event handler unless the browser is actually going to use pjax.
+**NOTE** Use the explicit（明确的） `$.support.pjax` guard（保卫、监视）. We aren't using `$.fn.pjax` so we should avoid binding this event handler unless（除非） the browser is actually going to use pjax.
 
 ### `$.pjax.submit`
 
-Submits a form via pjax.
+Submits a form via pjax.（通过pjax提交表单）
 
 ``` javascript
 $(document).on('submit', 'form[data-pjax]', function(event) {
@@ -208,7 +208,9 @@ $(document).on('submit', 'form[data-pjax]', function(event) {
 
 ### `$.pjax.reload`
 
-Initiates a request for the current URL to the server using pjax mechanism and replaces the container with the response. Does not add a browser history entry.
+Initiates（启动、发起） a request for the current URL to the server using pjax mechanism（机制、机理） and replaces the container with the response. Does not add a browser history entry.
+
+以当前的url通过ajax的方式向服务器发起一个请求，用服务器的响应来替换container中的内容，并且不添加浏览器历史纪录。
 
 ``` javascript
 $.pjax.reload('#pjax-container', options)
@@ -216,7 +218,9 @@ $.pjax.reload('#pjax-container', options)
 
 ### `$.pjax`
 
-Manual pjax invocation. Used mainly when you want to start a pjax request in a handler that didn't originate from a click. If you can get access to a click `event`, consider `$.pjax.click(event)` instead.
+Manual（手动的） pjax invocation（体力）. Used mainly when you want to start a pjax request in a handler that didn't originate （创世、起源于）from a click. If you can get access to a click `event`, consider `$.pjax.click(event)` instead.
+
+通常，当你想在一个处理函数中而不是从一个点击事件中发起一个pjax请求，你可以手动的调用pjax，注意，如果你有权访问一个click事件，请用`$.pjax.click(event)`代替它。
 
 ``` javascript
 function applyFilters() {
