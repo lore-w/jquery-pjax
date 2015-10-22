@@ -5,13 +5,15 @@
     <link rel="stylesheet" href="/css/main.css"/>
 </head>
 <body>
-{{{body}}}
+<div class="container" id="pjax-container">
+    {{{body}}}
+</div>
 <script src="http://localhost:8000/static/js/sea.js?nowrap"></script>
 <script>
     seajs.config({
-        base: 'http://localhost:8000/public'
+        base: 'http://localhost:8000/'
     });
-    seajs.use('js/index');
+    seajs.use('public/js/index');
 </script>
 </body>
 </html>

@@ -15,6 +15,8 @@ var app = express();
 
 var router = require('./router/router');
 
+var pjax = require('./express-pjax');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -26,6 +28,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(pjax());
 
 //router
 router(app);

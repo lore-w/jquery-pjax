@@ -5,10 +5,16 @@
  */
 
 exports.home = function (req, res) {
-    res.render('index', { title: 'Pjax' });
+    /*if (req.header('X-PJAX')) {
+        req.pjax = true;
+    }*/
+    res.renderPjax('index', { title: 'Pjax' });
+
 };
 
 exports.page = function (req, res) {
-    console.log(req);
-    res.render('page', { page: req.params.id });
+    /*if (req.header('X-PJAX')) {
+        req.pjax = true;
+    }*/
+    res.renderPjax('page', { page: req.params.id });
 };
