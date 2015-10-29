@@ -2,6 +2,8 @@
 
 ### How to run?
 
+`spm<=3.4.3`
+
 ```bash
 $ npm install
 ```
@@ -10,12 +12,10 @@ $ npm install
 $ spm install
 ```
 
-`spm<=3.4.3`
-
 ```bash
-node app
+$ node app
 ```
 
 ```bash
-spm doc
+$ spm doc
 ```

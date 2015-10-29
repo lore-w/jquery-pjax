@@ -411,11 +411,15 @@ Layouts can be forced to do a hard reload when assets or html changes.
 
 First set the initial layout version in your header with a custom meta tag.
 
+当静态资源和html改变的时候，layout可以被强制重新加载，首先，你需要在header中用一个自定义的meta标签设置layout的初始版本。
+
 ``` html
 <meta http-equiv="x-pjax-version" content="v123">
 ```
 
 Then from the server side, set the `X-PJAX-Version` header to the same.
+
+然后，在服务端，把响应头设置为相同的`X-PJAX-Version`
 
 ``` ruby
 if request.headers['X-PJAX']
@@ -423,7 +427,7 @@ if request.headers['X-PJAX']
 end
 ```
 
-Deploying a deploy, bumping the version constant to force clients to do a full reload the next request getting the new layout and assets.
+Deploying a deploy, bumping（碰撞、使撞击） the version constant（常量） to force clients to do a full reload the next request getting the new layout and assets.
 
 [compat]: http://caniuse.com/#search=pushstate
 [$.fn.on]: http://api.jquery.com/on/
